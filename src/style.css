@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-font {
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
