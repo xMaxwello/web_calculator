@@ -617,32 +617,66 @@ video {
   display: none;
 }
 
-.h-\[720px\] {
-  height: 720px;
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-\[1080px\] {
+  height: 1080px;
 }
 
 .max-h-screen {
   max-height: 100vh;
 }
 
-.max-w-screen-md {
-  max-width: 768px;
+.w-8 {
+  width: 2rem;
 }
 
-.flex-grow {
-  flex-grow: 1;
+.max-w-screen-md {
+  max-width: 768px;
 }
 
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.grid-rows-5 {
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .place-self-center {
@@ -665,9 +699,20 @@ video {
   border-width: 1px;
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-l {
+  border-left-width: 1px;
+}
+
+.border-r {
+  border-right-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-gray-400 {
@@ -685,29 +730,46 @@ video {
   padding-right: 2.5rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
 
-.py-32 {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+.text-end {
+  text-align: end;
 }
 
-.px-0 {
-  padding-left: 0px;
-  padding-right: 0px;
+.font-poppins {
+  font-family: Poppins, sans-serif;
 }
 
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .button-font {
@@ -715,6 +777,7 @@ video {
   line-height: 45px;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
+  color: rgba(0, 20, 39, 1);
 }
 
 @media (min-width: 768px) {

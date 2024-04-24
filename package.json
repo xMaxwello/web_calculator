@@ -2,7 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "",
-  "main": "/dist/index.js",
+  "main": "/dist/math.js",
   "scripts": {
     "build:tailwinds": "tailwind build src/style.css -o dist/style.css",
     "watch:tailwind": "tailwind build src/style.css -o dist/style.css --watch"
