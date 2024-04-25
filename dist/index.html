@@ -10,86 +10,89 @@
 </head>
 <body>
 
-<div id="container" class="mx-auto max-w-screen-md md:max-w-screen-md lg:max-w-screen-md max-h-screen h-[1080px] md:h-[1080px] lg:h-[1440px] border-r border-l border-gray-400 dark:bg-background overflow-hidden rounded-lg flex flex-col">
+<div class="bg-white dark:bg-custom-dark-blue transition-colors duration-300">
 
-    <!--Header-->
-    <div class="m-6 flex justify-between align-items-center">
-        <img class="dark:hidden self-center" src="/assets/dark/Logoreanmo.svg" alt="reanmo logo">
-        <img class="hidden dark:block place-self-center" src="/assets/Logoreanmo.svg" alt="reanmo logo">
-        <button id="btn-dark-mode">
-            <img class="dark:hidden" src="/assets/dark/ic_baseline-wb-sunny.svg" alt="settings icon">
-            <img class="hidden dark:block" src="/assets/ic_baseline-dark-mode.svg" alt="settings icon">
-        </button>
+    <div id="container" class="mx-auto max-w-screen-md md:max-w-screen-md lg:max-w-screen-md max-h-screen h-[1080px] md:h-[1080px] lg:h-[1440px] border-r border-l border-gray-400 overflow-hidden flex flex-col">
+
+        <!--Header-->
+        <div class="m-6 flex justify-between align-items-center">
+            <img class="dark:hidden self-center" src="/assets/Logoreanmo.svg" alt="reanmo logo">
+            <img class="hidden dark:block place-self-center" src="/assets/dark/Logoreanmo.svg" alt="reanmo logo">
+            <button id="btn-theme">
+                <img class="dark:hidden" src="/assets/ic_baseline-dark-mode.svg" alt="settings icon">
+                <img class="hidden dark:block" src="/assets/dark/ic_baseline-wb-sunny.svg" alt="settings icon">
+            </button>
+        </div>
+
+        <!--Screen with results-->
+        <div class="h-1/2 px-6 py-8 flex flex-col justify-end space-y-6">
+            <p id="calculation" class="flex items-end justify-end font-poppins font-medium text-primary text-lg text-custom-blue"></p>
+            <h2 id="result" class="text-end font-poppins font-medium text-7xl text-custom-dark-blue dark:text-white"></h2>
+        </div>
+
+        <div class=" grid grid-cols-4 grid-rows-5 box-shadow dark:bg-custom-blue-button transition-colors duration-300">
+            <!--Button row 1-->
+            <button onclick="clearCalculation()" class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-gray-400 px-10 py-10 button-font">AC</button>
+            <button onclick="switchSign()" class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-l border-gray-400 px-10 py-10 button-font flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="fill-custom-dark-blue dark:fill-white transition-colors duration-300">
+                    <path d="M16 10.664H10.6666V15.9973H7.99996V10.664H2.66663V7.99733H7.99996V2.664H10.6666V7.99733H16V10.664ZM29.3333 23.9973H18.6666V21.3307H29.3333V23.9973ZM24.6666 5.33333L5.33329 24.6667L7.33329 26.6667L26.6666 7.33333L24.6666 5.33333Z"/>
+                </svg>
+            </button>
+            <button onclick="" class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-l border-gray-400 px-10 py-10 button-font flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="fill-custom-dark-blue dark:fill-white transition-colors duration-300">
+                    <path d="M24.668 4.66669L4.66797 24.668L7.3293 27.3294L27.3293 7.32935L24.668 4.66669ZM9.33597 6.66669C8.98578 6.66634 8.63895 6.73497 8.31528 6.86865C7.99161 7.00234 7.69744 7.19847 7.44957 7.44585C7.2017 7.69323 7.00498 7.987 6.87064 8.3104C6.73631 8.6338 6.66699 8.9805 6.66664 9.33069C6.66629 9.68088 6.73491 10.0277 6.8686 10.3514C7.00229 10.675 7.19842 10.9692 7.4458 11.2171C7.69317 11.465 7.98695 11.6617 8.31035 11.796C8.63375 11.9303 8.98044 11.9997 9.33064 12C10.0379 12.0007 10.7164 11.7205 11.217 11.2209C11.7176 10.7213 11.9993 10.0433 12 9.33602C12.0007 8.62878 11.7204 7.95022 11.2208 7.44962C10.7212 6.94902 10.0432 6.66739 9.33597 6.66669ZM22.6693 20C21.9621 19.9993 21.2835 20.2796 20.7829 20.7792C20.2823 21.2788 20.0007 21.9568 20 22.664C19.9993 23.3713 20.2795 24.0498 20.7791 24.5504C21.2787 25.051 21.9567 25.3326 22.664 25.3334C23.0142 25.3337 23.361 25.2651 23.6847 25.1314C24.0083 24.9977 24.3025 24.8016 24.5504 24.5542C24.7982 24.3068 24.995 24.013 25.1293 23.6896C25.2636 23.3662 25.333 23.0195 25.3333 22.6694C25.3337 22.3192 25.265 21.9723 25.1313 21.6487C24.9976 21.325 24.8015 21.0308 24.5541 20.783C24.3068 20.5351 24.013 20.3384 23.6896 20.204C23.3662 20.0697 23.0195 20.0004 22.6693 20Z"/>
+                </svg>
+            </button>
+            <button onclick="addOperator('/')" class="col-span-1 aspect-w-1 aspect-h-1 border-b border-l border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.66675 14.6666H25.3334V17.3333H6.66675V14.6666ZM16.0027 5.33331C15.2955 5.33261 14.6169 5.61288 14.1163 6.11248C13.6158 6.61207 13.3341 7.29007 13.3334 7.99731C13.3327 8.70456 13.613 9.38312 14.1126 9.88371C14.6122 10.3843 15.2902 10.6659 15.9974 10.6666C16.7047 10.6674 17.3832 10.3871 17.8838 9.88749C18.3844 9.38789 18.666 8.70989 18.6667 8.00265C18.6675 7.2954 18.3872 6.61685 17.8876 6.11625C17.388 5.61565 16.71 5.33402 16.0027 5.33331ZM16.0027 21.3333C15.2955 21.3326 14.6169 21.6129 14.1163 22.1125C13.6158 22.6121 13.3341 23.2901 13.3334 23.9973C13.3327 24.7046 13.613 25.3831 14.1126 25.8837C14.6122 26.3843 15.2902 26.6659 15.9974 26.6666C16.7047 26.6674 17.3832 26.3871 17.8838 25.8875C18.3844 25.3879 18.666 24.7099 18.6667 24.0026C18.6675 23.2954 18.3872 22.6168 17.8876 22.1162C17.388 21.6157 16.71 21.334 16.0027 21.3333Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!--Button row 2-->
+            <button onclick="addNumber('7')" class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">7</button>
+            <button onclick="addNumber('8')" class="border border-gray-400 px-10 py-10 button-font">8</button>
+            <button onclick="addNumber('9')" class="border border-gray-400 px-10 py-10 button-font">9</button>
+            <button onclick="addOperator('*')" class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!--Button row 3-->
+            <button onclick="addNumber('4')" class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">4</button>
+            <button onclick="addNumber('5')" class="border border-gray-400 px-10 py-10 button-font">5</button>
+            <button onclick="addNumber('6')" class="border border-gray-400 px-10 py-10 button-font">6</button>
+            <button onclick="addOperator('-')" class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center" >
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 17.3307H6.66675V14.664H25.3334V17.3307Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!--Button row 4-->
+            <button onclick="addNumber('1')" class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">1</button>
+            <button onclick="addNumber('2')" class="border border-gray-400 px-10 py-10 button-font">2</button>
+            <button onclick="addNumber('3')" class="border border-gray-400 px-10 py-10 button-font">3</button>
+            <button onclick="addOperator('+')" class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 17.3307H17.3334V25.3307H14.6667V17.3307H6.66675V14.664H14.6667V6.664H17.3334V14.664H25.3334V17.3307Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!--Button row 5-->
+            <button onclick="addNumber('0')" class="col-span-2 border-t border-r border-gray-400 px-10 py-10 button-font">0</button>
+            <button onclick="addDot()" class="border-t border-l border-r border-gray-400 px-10 py-10 button-font">.</button>
+            <button onclick="calculateResult()" class="border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.3334 13.3307H6.66675V10.664H25.3334V13.3307ZM25.3334 21.3307H6.66675V18.664H25.3334V21.3307Z" fill="white"/>
+                </svg>
+            </button>
+        </div>
+
     </div>
-
-    <!--Screen with results-->
-    <div class="h-1/2 px-6 py-8 flex flex-col justify-end space-y-6">
-        <p id="calculation" class="flex items-end justify-end font-poppins font-medium text-primary text-lg">1+1+1</p>
-        <h2 id="result" class="text-end font-poppins font-medium text-black text-7xl">243</h2>
-    </div>
-
-    <div class=" grid grid-cols-4 grid-rows-5" style="box-shadow: 0 -1px 8px 0 gray">
-    <!--Button row 1-->
-        <button class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-gray-400 px-10 py-10 button-font">AC</button>
-        <button class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-l border-gray-400 px-10 py-10 button-font flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 10.664H10.6666V15.9973H7.99996V10.664H2.66663V7.99733H7.99996V2.664H10.6666V7.99733H16V10.664ZM29.3333 23.9973H18.6666V21.3307H29.3333V23.9973ZM24.6666 5.33333L5.33329 24.6667L7.33329 26.6667L26.6666 7.33333L24.6666 5.33333Z" fill="black"/>
-            </svg>
-        </button>
-        <button class="col-span-1 aspect-w-1 aspect-h-1 border-r border-b border-l border-gray-400 px-10 py-10 button-font flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24.668 4.66669L4.66797 24.668L7.3293 27.3294L27.3293 7.32935L24.668 4.66669ZM9.33597 6.66669C8.98578 6.66634 8.63895 6.73497 8.31528 6.86865C7.99161 7.00234 7.69744 7.19847 7.44957 7.44585C7.2017 7.69323 7.00498 7.987 6.87064 8.3104C6.73631 8.6338 6.66699 8.9805 6.66664 9.33069C6.66629 9.68088 6.73491 10.0277 6.8686 10.3514C7.00229 10.675 7.19842 10.9692 7.4458 11.2171C7.69317 11.465 7.98695 11.6617 8.31035 11.796C8.63375 11.9303 8.98044 11.9997 9.33064 12C10.0379 12.0007 10.7164 11.7205 11.217 11.2209C11.7176 10.7213 11.9993 10.0433 12 9.33602C12.0007 8.62878 11.7204 7.95022 11.2208 7.44962C10.7212 6.94902 10.0432 6.66739 9.33597 6.66669ZM22.6693 20C21.9621 19.9993 21.2835 20.2796 20.7829 20.7792C20.2823 21.2788 20.0007 21.9568 20 22.664C19.9993 23.3713 20.2795 24.0498 20.7791 24.5504C21.2787 25.051 21.9567 25.3326 22.664 25.3334C23.0142 25.3337 23.361 25.2651 23.6847 25.1314C24.0083 24.9977 24.3025 24.8016 24.5504 24.5542C24.7982 24.3068 24.995 24.013 25.1293 23.6896C25.2636 23.3662 25.333 23.0195 25.3333 22.6694C25.3337 22.3192 25.265 21.9723 25.1313 21.6487C24.9976 21.325 24.8015 21.0308 24.5541 20.783C24.3068 20.5351 24.013 20.3384 23.6896 20.204C23.3662 20.0697 23.0195 20.0004 22.6693 20Z" fill="black"/>
-            </svg>
-        </button>
-        <button class="col-span-1 aspect-w-1 aspect-h-1 border-b border-l border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.66675 14.6666H25.3334V17.3333H6.66675V14.6666ZM16.0027 5.33331C15.2955 5.33261 14.6169 5.61288 14.1163 6.11248C13.6158 6.61207 13.3341 7.29007 13.3334 7.99731C13.3327 8.70456 13.613 9.38312 14.1126 9.88371C14.6122 10.3843 15.2902 10.6659 15.9974 10.6666C16.7047 10.6674 17.3832 10.3871 17.8838 9.88749C18.3844 9.38789 18.666 8.70989 18.6667 8.00265C18.6675 7.2954 18.3872 6.61685 17.8876 6.11625C17.388 5.61565 16.71 5.33402 16.0027 5.33331ZM16.0027 21.3333C15.2955 21.3326 14.6169 21.6129 14.1163 22.1125C13.6158 22.6121 13.3341 23.2901 13.3334 23.9973C13.3327 24.7046 13.613 25.3831 14.1126 25.8837C14.6122 26.3843 15.2902 26.6659 15.9974 26.6666C16.7047 26.6674 17.3832 26.3871 17.8838 25.8875C18.3844 25.3879 18.666 24.7099 18.6667 24.0026C18.6675 23.2954 18.3872 22.6168 17.8876 22.1162C17.388 21.6157 16.71 21.334 16.0027 21.3333Z" fill="white"/>
-            </svg>
-        </button>
-
-    <!--Button row 2-->
-        <button class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">7</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">8</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">9</button>
-        <button class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.3334 8.54666L23.4534 6.66666L16.0001 14.12L8.54675 6.66666L6.66675 8.54666L14.1201 16L6.66675 23.4533L8.54675 25.3333L16.0001 17.88L23.4534 25.3333L25.3334 23.4533L17.8801 16L25.3334 8.54666Z" fill="white"/>
-            </svg>
-        </button>
-
-    <!--Button row 3-->
-        <button class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">4</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">5</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">6</button>
-        <button class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.3334 17.3307H6.66675V14.664H25.3334V17.3307Z" fill="white"/>
-            </svg>
-        </button>
-
-    <!--Button row 4-->
-        <button class="border-t border-b border-r border-gray-400 px-10 py-10 button-font">1</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">2</button>
-        <button class="border border-gray-400 px-10 py-10 button-font">3</button>
-        <button class="border-b border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.3334 17.3307H17.3334V25.3307H14.6667V17.3307H6.66675V14.664H14.6667V6.664H17.3334V14.664H25.3334V17.3307Z" fill="white"/>
-            </svg>
-        </button>
-
-    <!--Button row 5-->
-        <button class="col-span-2 border-t border-r border-gray-400 px-10 py-10 button-font">0</button>
-        <button class="border-t border-l border-r border-gray-400 px-10 py-10 button-font">.</button>
-        <button class="border-l border-t border-gray-400 px-10 py-10 button-font bg-custom-blue flex items-center justify-center">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.3334 13.3307H6.66675V10.664H25.3334V13.3307ZM25.3334 21.3307H6.66675V18.664H25.3334V21.3307Z" fill="white"/>
-            </svg>
-        </button>
-    </div>
-
-
 </div>
 
 <script src="math.js"></script>
+<script src="theme.js"></script>
 </body>
 </html>

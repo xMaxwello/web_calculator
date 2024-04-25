@@ -621,20 +621,12 @@ video {
   height: 50%;
 }
 
-.h-8 {
-  height: 2rem;
-}
-
 .h-\[1080px\] {
   height: 1080px;
 }
 
 .max-h-screen {
   max-height: 100vh;
-}
-
-.w-8 {
-  width: 2rem;
 }
 
 .max-w-screen-md {
@@ -691,10 +683,6 @@ video {
   overflow: hidden;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -723,6 +711,15 @@ video {
 .bg-custom-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(0 172 223 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.fill-custom-dark-blue {
+  fill: rgb(0, 20, 39);
 }
 
 .px-10 {
@@ -767,9 +764,34 @@ video {
   font-weight: 500;
 }
 
-.text-black {
+.text-custom-blue {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
+  color: rgb(0 172 223 / var(--tw-text-opacity));
+}
+
+.text-custom-dark-blue {
+  --tw-text-opacity: 1;
+  color: rgb(0 20 39 / var(--tw-text-opacity));
+}
+
+.transition-colors {
+  transition-property: background-color, color, fill;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
 .button-font {
@@ -778,6 +800,46 @@ video {
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   color: rgba(0, 20, 39, 1);
+  transition: color 0.3s ease-out;
+}
+
+.dark .button-font {
+  color: rgba(255, 255, 255, 1);
+}
+
+.box-shadow{
+  box-shadow: 0 -1px 8px 0 gray;
+}
+
+.dark .box-shadow{
+  box-shadow: none;
+}
+
+.dark\:block:is(.dark *) {
+  display: block;
+}
+
+.dark\:hidden:is(.dark *) {
+  display: none;
+}
+
+.dark\:bg-custom-blue-button:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(25 43 60 / var(--tw-bg-opacity));
+}
+
+.dark\:bg-custom-dark-blue:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 20 39 / var(--tw-bg-opacity));
+}
+
+.dark\:fill-white:is(.dark *) {
+  fill: #fff;
+}
+
+.dark\:text-white:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
@@ -797,15 +859,5 @@ video {
 
   .lg\:max-w-screen-md {
     max-width: 768px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .dark\:block {
-    display: block;
-  }
-
-  .dark\:hidden {
-    display: none;
   }
 }

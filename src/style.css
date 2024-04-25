@@ -8,4 +8,17 @@
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     color: rgba(0, 20, 39, 1);
+    transition: color 0.3s ease-out;
+}
+
+.dark .button-font {
+    color: rgba(255, 255, 255, 1);
+}
+
+.box-shadow{
+    box-shadow: 0 -1px 8px 0 gray;
+}
+
+.dark .box-shadow{
+    box-shadow: none;
 }
