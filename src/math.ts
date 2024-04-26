@@ -1,66 +1,111 @@
 const calculationElement = document.getElementById("calculation");
 const resultElement = document.getElementById("result");
 
+///TODO: add percentage function
+///TODO: either make transition from result string to calc string OR transfer calculation from result string to calc string
+
+let calculationInput: string[] = [];
 let resultDisplayed = false;
 
-///TODO: only one operater after number entry
-///TODO: add sign switch function
-///TODO: add percentage function
+function updateCalculationDisplay(): void {
+    calculationElement!.textContent = calculationInput.join(' ');
+}
 
 function addNumber(number: string): void {
     if (calculationElement) {
         if (resultDisplayed) {
-            calculationElement.textContent = '';
+            calculationInput = [];
             resultDisplayed = false;
         }
-        calculationElement.textContent += number;
+
+        if (calculationInput.length && !isNaN(+calculationInput[calculationInput.length - 1])) {
+            calculationInput[calculationInput.length - 1] += number;
+        } else {
+            calculationInput.push(number);
+        }
+
+        updateCalculationDisplay();
     }
 }
 
 function addOperator(operator: string): void {
     if (calculationElement) {
-        if (resultDisplayed) {
-            if (resultElement && resultElement.textContent) {
-                calculationElement.textContent = resultElement.textContent;
-                resultDisplayed = false;
+        if (calculationInput.length === 0) {
+            if (operator === '-') {
+                calculationInput.push(operator);
+            } else {
+                console.error('Cannot start expression with an operator.');
+                return;
             }
+        } else if (isNaN(+calculationInput[calculationInput.length - 1])) {
+            calculationInput[calculationInput.length - 1] = operator;
+        } else {
+            calculationInput.push(operator);
         }
-        calculationElement.textContent += ` ${operator} `;
-    }
-}
 
-function clearCalculation(){
-    if (calculationElement && resultElement) {
-        calculationElement.textContent = '';
-        resultElement.textContent = '';
         resultDisplayed = false;
+        updateCalculationDisplay();
     }
 }
 
-function switchSign(){
-
+function clearCalculation(): void {
+    calculationInput = [];
+    resultDisplayed = false;
+    if (calculationElement) calculationElement.textContent = '';
+    if (resultElement) resultElement.textContent = '';
 }
 
-function calculateResult(){
+function switchSign(): void {
+    if (calculationElement && calculationInput.length > 0) {
+        let lastInput = calculationInput[calculationInput.length - 1];
+
+        if (!isNaN(parseFloat(lastInput))) {
+            lastInput = lastInput.startsWith('-') ? lastInput.slice(1) : `-${lastInput}`;
+            calculationInput[calculationInput.length - 1] = lastInput;
+        } else if (lastInput === '-') {
+            calculationInput.pop();
+        } else {
+            calculationInput.push('-');
+        }
+
+        updateCalculationDisplay();
+    }
+}
+
+function calculatePercentage(): void {
+    if (calculationElement && calculationInput.length > 0) {
+
+    }
+}
+
+
+function calculateResult(): void {
     if (calculationElement && resultElement) {
         try {
-            const expression = calculationElement.textContent || '';
-            const result = eval(expression);
-            resultElement.textContent = result.toString();
+            const result = eval(calculationInput.join(' '));
+            const roundedResult = Math.round((result + Number.EPSILON) * 100) / 100;
+            resultElement.textContent = roundedResult.toString();
+            calculationInput = [roundedResult.toString()];
             resultDisplayed = true;
+
         } catch (error) {
             resultElement.textContent = 'Error';
+            calculationInput = [];
             console.error('Error evaluating expression:', error);
         }
     }
 }
 
 function addDot(){
-    if (calculationElement) {
-        const parts = calculationElement.textContent?.split(/[+\-*\/\s]+/);
-        const currentPart = parts?.pop();
-        if (currentPart && !currentPart.includes('.')) {
-            calculationElement.textContent += '.';
+    if (calculationElement && !resultDisplayed) {
+        const lastInput = calculationInput[calculationInput.length - 1];
+
+        if (lastInput !== undefined && !isNaN(+lastInput) && !lastInput.includes('.')) {
+            calculationInput[calculationInput.length - 1] += '.';
+            updateCalculationDisplay();
+        } else if (lastInput === undefined || isNaN(+lastInput)) {
+            calculationInput.push('0.');
+            updateCalculationDisplay();
         }
     }
 }
