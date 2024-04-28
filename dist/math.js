@@ -1,12 +1,12 @@
 "use strict";
 const calculationElement = document.getElementById("calculation");
 const resultElement = document.getElementById("result");
-///TODO: add percentage function
-///TODO: either make transition from result string to calc string OR transfer calculation from result string to calc string
 let calculationInput = [];
 let resultDisplayed = false;
 function updateCalculationDisplay() {
-    calculationElement.textContent = calculationInput.join(' ');
+    if (resultElement) {
+        resultElement.textContent = calculationInput.join(' ');
+    }
 }
 function addNumber(number) {
     if (calculationElement) {
@@ -84,6 +84,7 @@ function calculatePercentage() {
 }
 function calculateResult() {
     if (calculationElement && resultElement) {
+        calculationElement.textContent = calculationInput.join(' ');
         try {
             const result = eval(calculationInput.join(' '));
             const roundedResult = Math.round((result + Number.EPSILON) * 100) / 100;
