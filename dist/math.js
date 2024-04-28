@@ -69,7 +69,17 @@ function switchSign() {
     }
 }
 function calculatePercentage() {
-    if (calculationElement && calculationInput.length > 0) {
+    if (calculationElement && calculationInput.length > 1) {
+        const lastNumberStr = calculationInput.pop();
+        if (lastNumberStr) {
+            const lastNumber = parseFloat(lastNumberStr);
+            let subtotalExpression = calculationInput.join('');
+            subtotalExpression = subtotalExpression.replace(/[+\-*\/]$/, '');
+            const subtotal = subtotalExpression ? Function(`"use strict"; return (${subtotalExpression});`)() : 0;
+            const percentageValue = subtotal * (lastNumber / 100);
+            calculationInput.push(percentageValue.toString());
+            updateCalculationDisplay();
+        }
     }
 }
 function calculateResult() {
